@@ -1,0 +1,2 @@
+class Furever::CLI
+end
