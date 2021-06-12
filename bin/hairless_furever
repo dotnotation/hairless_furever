@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+#this is my run file/executable file and tells bash what language to use
+
 require_relative "../lib/environment"
 
 HairlessFurever::CLI.new.call
