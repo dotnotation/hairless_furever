@@ -1,10 +1,11 @@
 class HairlessFurever::Dog
-    attr_accessor :name
+    attr_accessor :breed, :description, :height, :weight, :physical_characteristics
 
     @@all = []
     
-    def initialize(name)
-        @name = name
+    def initialize(breed)
+        @breed = breed
+        @description = []
         save
     end
 
@@ -14,7 +15,10 @@ class HairlessFurever::Dog
 
     def self.all
         HairlessFurever::DogCatcher.catch_dog_breeds if @@all.empty?
-        @@all
-        #binding.pry
+        @@all 
+    end
+
+    def description
+        HairlessFurever::DogCatcher.scrape_description(self) if @description.empty?
     end
 end
