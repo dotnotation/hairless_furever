@@ -20,7 +20,7 @@ class HairlessFurever::CLI
     #ask user which breed they would like more information on
     def fetched_dogs_list
         puts "Please enter the number of the dog you would like more information on." 
-        @dogs.each.with_index(1) {|month, index| puts "#{index}. #{month}"}
+        @dogs.each.with_index(1) {|dog, index| puts "#{index}. #{dog.name}"}
     end
 
     #get user input
@@ -39,7 +39,7 @@ class HairlessFurever::CLI
 
     def show_dog(chosen_dog)
         dog = @dogs[chosen_dog - 1]
-        puts "attributes of #{dog}"
+        puts "attributes of #{dog.name}"
         #binding.pry
     end
 

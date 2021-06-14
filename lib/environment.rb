@@ -8,6 +8,9 @@ require_relative "./hairless_furever/DogCatcher"
 
 
 require 'pry'
+require 'nokogiri'
+require 'open-uri'
+
 
 module HairlessFurever
   class Error < StandardError; end
