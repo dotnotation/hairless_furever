@@ -2,6 +2,9 @@
 
 require_relative "./hairless_furever/version"
 require_relative "./hairless_furever/cli"
+require_relative "./hairless_furever/Dog"
+require_relative "./hairless_furever/DogCatcher"
+
 
 
 require 'pry'

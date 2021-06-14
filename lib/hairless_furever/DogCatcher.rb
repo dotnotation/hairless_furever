@@ -1,2 +1,2 @@
-class DogCatcher
+class HairlessFurever::DogCatcher
 end
