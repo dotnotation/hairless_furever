@@ -6,16 +6,15 @@ class HairlessFurever::DogCatcher
         
         breeds.each do |b| 
             name = b.css(".mntl-sc-block-heading").text.strip
-            description = b.css("p.comp.text-passage").text.strip
-            HairlessFurever::Dog.create(name, description)
+            description = b.css("p.comp.text-passage").text
+            binding.pry
+            HairlessFurever::Dog.find_or_create_by_name(name, description)
             #binding.pry
         end
     end
     
-    # def self.attributes
-    #     site = "https://www.thesprucepets.com/hairless-dog-breeds-4801015"
-    #     doc = Nokogiri::HTML(open(site))
-    #     page = doc.css("sc-list_1-0")
+   
+
     #     details = doc.css("ul#sc-list_1-0 #mntl-sc-block-callout-body_1-0-1")
     #     page.collect do |attribute|
     #         {:description => attribute.css("mntl-sc-block_2-0-2").text,

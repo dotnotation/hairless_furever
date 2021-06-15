@@ -7,7 +7,6 @@ class HairlessFurever::Dog
         @name = name
         @description = description
         #binding.pry
-        #save
     end
 
     def save
@@ -15,14 +14,26 @@ class HairlessFurever::Dog
     end
 
     def self.all
-        HairlessFurever::DogCatcher.catch_dog_breeds if @@all.empty?
+        #HairlessFurever::DogCatcher.catch_dog_breeds if @@all.empty?
         @@all 
-        binding.pry
+        #binding.pry
     end
 
     def self.create(name, description)
         dog = self.new(name, description)
         dog.save
         dog
+    end
+
+    def self.find_by_name(name)
+        self.all.detect {|dog| dog.name == name}
+    end
+
+    def self.find_or_create_by_name(name, description)
+        if dog = self.find_by_name(name)
+            dog
+        else
+            self.create(name, description)
+        end
     end
 end
