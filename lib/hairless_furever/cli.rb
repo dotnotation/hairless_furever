@@ -6,6 +6,7 @@ class HairlessFurever::CLI
             fetch_dog
             fetched_dogs_list
             fetch_user_dog
+            more_information
             continue
         end
         farewell
@@ -43,6 +44,18 @@ class HairlessFurever::CLI
         puts "#{dog.name} : #{dog.description}"
     end
     
+    def more_information
+        puts "Would you like to get more informaion on this dog? (y/n)"
+        @input = gets.strip
+        if @input == "y"
+            details
+        else
+            continue
+        end
+    end
+
+    def details
+    end
 
     def continue
         puts "Press any key to see the list of dogs again. Type 'exit' to leave."
