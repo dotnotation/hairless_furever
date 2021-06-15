@@ -20,14 +20,14 @@ class HairlessFurever::CLI
     #ask user which breed they would like more information on
     def fetched_dogs_list
         puts "Please enter the number of the dog you would like more information on." 
-        @dogs.each.with_index(1) {|dog, index| puts "#{index}. #{dog.breed}"}
+        @dogs.each.with_index(1) {|dog, index| puts "#{index}. #{dog.name}"}
     end
 
     #get user input
     def fetch_user_dog
         chosen_dog = gets.strip.to_i
         #need to check user input to make sure it is valid 
-        fetch_dog(chosen_dog) if valid_input(chosen_dog, @dogs) 
+        show_dog(chosen_dog) if valid_input(chosen_dog, @dogs) 
             #give attributes of chosen dog
     end
 
@@ -37,9 +37,12 @@ class HairlessFurever::CLI
        
     end
 
-    def fetch_dog(chosen_dog)
+    def show_dog(chosen_dog)
+        #show dog name and description
+        #use scraper method scrape_description
+        #call scrape_description in Dog class on a new instance
         dog = @dogs[chosen_dog -1]
-        puts "#{dog} : #{dog.description}}"
+        puts "#{dog.name} : #{dog.description}}"
     end
     
 

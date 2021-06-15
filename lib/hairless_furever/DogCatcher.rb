@@ -1,27 +1,18 @@
 class HairlessFurever::DogCatcher
-
+ 
     def self.catch_dog_breeds
         site = "https://www.thesprucepets.com/hairless-dog-breeds-4801015"
         doc = Nokogiri::HTML(open(site))
-        breeds = doc.css("ul#sc-list_1-0 .mntl-sc-block-heading")
+        breeds = doc.css("li#sc-list__item_1-0")
         breeds.each do |b| 
-            breed = b.text.strip
-            HairlessFurever::Dog.new(breed)
+            name = b.css(".mntl-sc-block-heading").text.strip
+            description = b.css("#mntl-sc-block_2-0-2").text.strip
+            HairlessFurever::Dog.new(name, description)
             #binding.pry
         end
     end
     
-    def self.scrape_description(dog)
-        site = "https://www.thesprucepets.com/hairless-dog-breeds-4801015"
-        doc = Nokogiri::HTML(open(site))
-        descriptions = doc.css("ul#sc-list_1-0 #mntl-sc-block_2-0-2")
-        descriptions.each do |d|
-            get_description = d.text.strip
-            dog.description << get_description
-        end
-    end
 
-    # description: doc.css("ul#sc-list_1-0 #mntl-sc-block_2-0-2")
     # attributes: things = doc.css("ul#sc-list_1-0 #mntl-sc-block-callout-body_1-0-1")
         # height: things.each{|r| puts r.css("p")[0].text}
         # weight: things.each{|r| puts r.css("p")[1].text}
