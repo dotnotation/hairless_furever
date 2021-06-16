@@ -1,25 +1,24 @@
 class HairlessFurever::CLI
+
+    BASE_PATH = "https://www.thesprucepets.com/hairless-dog-breeds-4801015"
+    
     def call
+        HairlessFurever::DogCatcher.catch_dog_breeds
         puts "Welcome to Hairless Furever!"
+        puts " U・ᴥ・U "
         @input = ""
         until @input == "exit"
-            fetch_dog
-            fetched_dogs_list
+            fetch_dogs
             fetch_user_dog
             more_information
-            continue
         end
         farewell
     end
     #get dog breeds
-    def fetch_dog
-        @dogs = HairlessFurever::Dog.all
-        #binding.pry
-    end
-
-    #list the dog breeds fetched_dogs_list each.with_index(1)
+    #list the dog breeds each.with_index(1)
     #ask user which breed they would like more information on
-    def fetched_dogs_list
+    def fetched_dogs
+        @dogs = HairlessFurever::Dog.all
         puts "Please enter the number of the dog you would like more information on." 
         @dogs.each.with_index(1) {|dog, index| puts "#{index}. #{dog.name}"}
         #binding.pry
@@ -41,20 +40,24 @@ class HairlessFurever::CLI
     def show_dog(chosen_dog)
         #show dog name and description 
         dog = @dogs[chosen_dog -1]
-        puts "#{dog.name} : #{dog.description}"
+        puts "#{dog.name}: #{dog.description}"
     end
     
     def more_information
         puts "Would you like to get more informaion on this dog? (y/n)"
         @input = gets.strip
         if @input == "y"
-            details
+            details(chosen_dog)
         else
             continue
         end
     end
 
-    def details
+    def details(chosen_dog)
+        dog = @dogs[chosen_dog -1]
+        puts "#{dog.height}"
+        puts "#{dog.weight}"
+        puts "#{dog.physical_characteristics}"
     end
 
     def continue
@@ -63,6 +66,14 @@ class HairlessFurever::CLI
     end
 
     def farewell
+        puts "             /)-_-(\ "       
+        puts "              (o o)"          
+        puts "      .-----__/\o/"           
+        puts "     /  __      / "             
+        puts " \__/\ /  \_\ |/ "                
+        puts "      \\     || "                 
+        puts "      //     || "                 
+        puts "      ||     || "                 
         puts "Thanks for stopping by."
     end
     
