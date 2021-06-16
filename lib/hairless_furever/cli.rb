@@ -1,16 +1,15 @@
 class HairlessFurever::CLI
-
-    BASE_PATH = "https://www.thesprucepets.com/hairless-dog-breeds-4801015"
     
     def call
         HairlessFurever::DogCatcher.catch_dog_breeds
-        puts "Welcome to Hairless Furever!"
-        puts " U・ᴥ・U "
+        puts "\nWelcome to Hairless Furever!\n"
+        puts "\nHere you can learn all about hairless dog breeds.\n"
+        puts " \nU・ᴥ・U\n "
+        puts "     u u"
         @input = ""
         until @input == "exit"
-            fetch_dogs
+            fetched_dogs
             fetch_user_dog
-            more_information
         end
         farewell
     end
@@ -41,9 +40,6 @@ class HairlessFurever::CLI
         #show dog name and description 
         dog = @dogs[chosen_dog -1]
         puts "#{dog.name}: #{dog.description}"
-    end
-    
-    def more_information
         puts "Would you like to get more informaion on this dog? (y/n)"
         @input = gets.strip
         if @input == "y"
@@ -58,6 +54,7 @@ class HairlessFurever::CLI
         puts "#{dog.height}"
         puts "#{dog.weight}"
         puts "#{dog.physical_characteristics}"
+        continue
     end
 
     def continue
@@ -66,15 +63,17 @@ class HairlessFurever::CLI
     end
 
     def farewell
-        puts "             /)-_-(\ "       
+        puts ""
+        puts "             /)-_-(\\"       
         puts "              (o o)"          
-        puts "      .-----__/\o/"           
+        puts "      .-----__/\\o/"           
         puts "     /  __      / "             
-        puts " \__/\ /  \_\ |/ "                
-        puts "      \\     || "                 
+        puts " \\__/\\ /  \\_\\ |/ "                
+        puts "      \\\\     || "                 
         puts "      //     || "                 
-        puts "      ||     || "                 
-        puts "Thanks for stopping by."
+        puts "      |\\     |\\ "                 
+        puts "\nThanks for stopping by.\n"
+        puts ""
     end
     
 end

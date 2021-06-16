@@ -17,7 +17,7 @@ class HairlessFurever::Dog
     end
 
     def self.all
-        HairlessFurever::DogCatcher.catch_dog_breeds if @@all.empty?
+        #HairlessFurever::DogCatcher.catch_dog_breeds if @@all.empty?
         @@all 
         #binding.pry
     end
@@ -39,15 +39,4 @@ class HairlessFurever::Dog
             self.create(name, description, height, weight, physical_characteristics)
         end
     end
-
-    # def initialize(breed_hash)
-    #     breed_hash.each {|attribute, value| self.send("#{attribute}=", value)}
-    #     @@all << self
-    #     #binding.pry
-    # end
-
-    # def self.create_from_collection(breeds_array)
-    #     breeds_array.each {|breed_hash| HairlessFurever::Dog.new(breed_hash)}
-    # end
-
 end
