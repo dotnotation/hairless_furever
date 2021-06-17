@@ -19,7 +19,7 @@ class HairlessFurever::CLI
     def fetched_dogs
         #getting all the dog breeds
         @dogs = HairlessFurever::Dog.all
-        puts "Please enter the number of the dog you would like more information on." 
+        puts "\nPlease enter the number of the dog you would like more information on.\n" 
         @dogs.each.with_index(1) {|dog, index| puts "#{index}. #{dog.name}"}
     end
 
@@ -40,7 +40,7 @@ class HairlessFurever::CLI
         #show dog name and description 
         dog = @dogs[chosen_dog -1]
         puts "#{dog.name}: #{dog.description}"
-        puts "Would you like to get more informaion on this dog? (y/n)"
+        puts "\nWould you like to get more information on this dog? (y/n)\n"
         @input = gets.strip
         if @input == "y"
             details(chosen_dog)
@@ -60,7 +60,7 @@ class HairlessFurever::CLI
 
     def continue
         #see if user wants to continue or exit
-        puts "Press any key to see the list of dogs again. Type 'exit' to leave."
+        puts "\nPress any key to see the list of dogs again. Type 'exit' to leave.\n"
         @input = gets.strip
     end
 
