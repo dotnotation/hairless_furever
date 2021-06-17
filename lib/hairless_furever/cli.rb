@@ -1,7 +1,9 @@
 class HairlessFurever::CLI
     
     def call
+        #start scraping method
         HairlessFurever::DogCatcher.catch_dog_breeds
+        #welcome user and set flow of program
         puts "\nWelcome to Hairless Furever!\n"
         puts "\nHere you can learn all about hairless dog breeds.\n"
         puts "U・ᴥ・U"
@@ -13,27 +15,24 @@ class HairlessFurever::CLI
         end
         farewell
     end
-    #get dog breeds
-    #list the dog breeds each.with_index(1)
-    #ask user which breed they would like more information on
+
     def fetched_dogs
+        #getting all the dog breeds
         @dogs = HairlessFurever::Dog.all
         puts "Please enter the number of the dog you would like more information on." 
         @dogs.each.with_index(1) {|dog, index| puts "#{index}. #{dog.name}"}
-        #binding.pry
     end
 
-    #get user input
     def fetch_user_dog
         chosen_dog = gets.strip.to_i
-        #need to check user input to make sure it is valid 
+        #getting and checking user input to make sure it is valid 
         show_dog(chosen_dog) if valid_input(chosen_dog, @dogs) 
     end
 
     def valid_input(user_input, data)
-        #input needs to be less than ten but more than 0 and can't be a negative number 
-        #user_input.to_i.between?(1, data.length)
-        user_input.to_i <= data.length && user_input.to_i > 0
+        #input needs to be less than the amount of data(dog breeds) but more than 0 and can't be a negative number 
+        user_input.to_i.between?(1, data.length)
+        #user_input.to_i <= data.length && user_input.to_i > 0 also works
        
     end
 
@@ -51,6 +50,7 @@ class HairlessFurever::CLI
     end
 
     def details(chosen_dog)
+        #show more details about the selected dog breed
         dog = @dogs[chosen_dog -1]
         puts "#{dog.height}"
         puts "#{dog.weight}"
@@ -59,6 +59,7 @@ class HairlessFurever::CLI
     end
 
     def continue
+        #see if user wants to continue or exit
         puts "Press any key to see the list of dogs again. Type 'exit' to leave."
         @input = gets.strip
     end

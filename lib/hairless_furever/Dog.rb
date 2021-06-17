@@ -9,7 +9,6 @@ class HairlessFurever::Dog
         @height = height
         @weight = weight
         @physical_characteristics = physical_characteristics
-        #binding.pry
     end
 
     def save
@@ -19,7 +18,6 @@ class HairlessFurever::Dog
     def self.all
         #HairlessFurever::DogCatcher.catch_dog_breeds if @@all.empty?
         @@all 
-        #binding.pry
     end
 
     def self.create(name, description, height, weight, physical_characteristics)
