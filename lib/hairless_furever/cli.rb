@@ -4,8 +4,8 @@ class HairlessFurever::CLI
         HairlessFurever::DogCatcher.catch_dog_breeds
         puts "\nWelcome to Hairless Furever!\n"
         puts "\nHere you can learn all about hairless dog breeds.\n"
-        puts " \nU・ᴥ・U\n "
-        puts "     u u"
+        puts "U・ᴥ・U"
+        puts " u u"
         @input = ""
         until @input == "exit"
             fetched_dogs
@@ -32,6 +32,7 @@ class HairlessFurever::CLI
 
     def valid_input(user_input, data)
         #input needs to be less than ten but more than 0 and can't be a negative number 
+        #user_input.to_i.between?(1, data.length)
         user_input.to_i <= data.length && user_input.to_i > 0
        
     end
