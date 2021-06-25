@@ -37,4 +37,7 @@ class HairlessFurever::Dog
             self.create(name, description, height, weight, physical_characteristics)
         end
     end
+
+
+
 end

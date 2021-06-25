@@ -43,15 +43,15 @@ class HairlessFurever::CLI
         puts "\nWould you like to get more information on this dog? (y/n)\n"
         @input = gets.strip
         if @input == "y"
-            details(chosen_dog)
+            details(dog)
         else
             continue
         end
     end
 
-    def details(chosen_dog)
+    def details(dog)
         #show more details about the selected dog breed
-        dog = @dogs[chosen_dog -1]
+        #dog = @dogs[chosen_dog -1]
         puts "#{dog.height}"
         puts "#{dog.weight}"
         puts "#{dog.physical_characteristics}"
